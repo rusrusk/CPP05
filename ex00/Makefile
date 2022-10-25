@@ -6,11 +6,11 @@ CFLAGS			=			-Wall -Wextra -Werror --std=c++98 -g
 
 RM				=			rm -rf
 
-SRCS			=			main.cpp
+SRCS			=			main.cpp Bureucrat.cpp
 
 OBJSDIR			=			objs
 
-OBJS			=			$(SRCS:%.cpp=$(OBJSDIR)%.o)
+OBJS			=			$(SRCS:%.cpp=$(OBJSDIR)/%.o)
 
 all				:			$(NAME)
 
