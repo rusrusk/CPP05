@@ -3,7 +3,7 @@
 //***** Default constructor ******//
 
 PresidentialPardonForm::PresidentialPardonForm()
-    : Form("PresidentialPardonForm", 25, 5), _target("President") {
+    : Form("PresidentialPardonForm", _GRADE_TO_SIGN, _GRADE_TO_EXEC), _target("President") {
     std::cout << "[PresidentialPardonForm] default constructor was called"
               << std::endl;
 }

@@ -8,6 +8,8 @@
 class RobotomyRequestForm : public Form {
    private:
     std::string _target;
+	static const int _GRADE_TO_SIGN = 72;
+	static const int _GRADE_TO_EXEC = 45;
 
    public:
     RobotomyRequestForm();

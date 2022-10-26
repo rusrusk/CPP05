@@ -6,7 +6,7 @@ CFLAGS			=			-Wall -Wextra -Werror --std=c++98 -g
 
 RM				=			rm -rf
 
-SRCS			=			main.cpp Bureucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+SRCS			=			main.cpp Bureucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 
 OBJSDIR			=			objs
 

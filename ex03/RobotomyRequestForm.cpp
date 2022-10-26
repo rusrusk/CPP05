@@ -3,7 +3,7 @@
 //***** Default constructor ******//
 
 RobotomyRequestForm::RobotomyRequestForm()
-    : Form("RobotomyRequestForm", 72, 45), _target("Robotomy") {
+    : Form("RobotomyRequestForm", _GRADE_TO_SIGN, _GRADE_TO_EXEC), _target("Robotomy") {
     std::cout << "[RobotomyRequestForm] default constructor was called"
               << std::endl;
 }
