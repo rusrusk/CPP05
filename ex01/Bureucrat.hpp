@@ -3,11 +3,14 @@
 
 #include <iostream>
 #include <stdexcept>
+#include "Form.hpp"
 
 #include "colors.hpp"
 
+class Form;
+
 class Bureucrat {
-   private:	
+   private:
     const std::string _name;
     int _grade;
     static const int _MIN_GRADE = 150;
@@ -37,6 +40,7 @@ class Bureucrat {
 
     // Helper functions
 
+    void signForm(Form &form);
     void incrementGrade();
     void decrementGrade();
 };
