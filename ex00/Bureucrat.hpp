@@ -24,7 +24,7 @@ class Bureucrat {
     // Nested Exception error classes
     class GradeTooHighException : public std::exception {
        public:
-        virtual const char *what() const throw();
+        virtual const char *what() const throw(); //The what method is virtual, and the meaning is that we should override it to return whatever message we want to return.
     };
     class GradeTooLowException : public std::exception {
        public:

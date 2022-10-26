@@ -81,12 +81,19 @@ const char *Form::GradeTooLowException::what() const throw() {
 
 void Form::beSigned(const Bureucrat &bureau) {
 
-	if (bureau.getGrade() <= this->_grade_to_sign) {
-		this->_isSigned = true;
-		std::cout << COLOR_UNDERLINE << COLOR_BRIGHT_GREEN << "~~~~~ [Form] is signed now on!!! ~~~~~" << END << std::endl;
+	try
+	{
+		if (bureau.getGrade() <= this->_grade_to_sign) {
+        	this->_isSigned = true;
+        	std::cout << COLOR_UNDERLINE << COLOR_BOLD_GREEN << "~~~~~ [Form] is signed now on!!! ~~~~~" << END << std::endl;
+    	}
+    	else
+        	throw Form::GradeTooLowException();
 	}
-	else
-		throw Form::GradeTooLowException();
+	catch(const Form::GradeTooLowException& e)
+	{
+		std::cerr  << COLOR_BOLD_RED << COLOR_STRIKETHROUGH << e.what() << '\n';
+	}
 
 }
 
