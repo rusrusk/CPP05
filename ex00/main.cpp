@@ -1,4 +1,4 @@
-#include "Bureucrat.hpp"
+#include "Bureaucrat.hpp"
 
 int main() {
     std::cout << COLOR_BOLD << COLOR_BRIGHT_DARK_GREY << std::string(60, '=')
@@ -11,7 +11,7 @@ int main() {
                   << "***********Welcome to Bureaucratic Machine*************"
                   << END << std::endl;
         try {
-            Bureucrat person1;
+            Bureaucrat person1;
             std::cout << COLOR_ITALIC << COLOR_CYAN << COLOR_BOLD << person1
                       << END;
             person1.incrementGrade();
@@ -32,7 +32,7 @@ int main() {
                   << "***********Welcome to Bureaucratic Machine*************"
                   << END << std::endl;
         try {
-            Bureucrat person2("Ruslan", 3);
+            Bureaucrat person2("Ruslan", 3);
             std::cout << COLOR_ITALIC << COLOR_CYAN << COLOR_BOLD << person2
                       << END;
             for (int i = 0; i < 3; i++) {
@@ -58,7 +58,7 @@ int main() {
                   << "***********Welcome to Bureaucratic Machine*************"
                   << END << std::endl;
         try {
-            Bureucrat person3("The Rock", 151);
+            Bureaucrat person3("The Rock", 151);
             std::cout << COLOR_ITALIC << COLOR_CYAN << COLOR_BOLD << person3
                       << END;
         } catch (const std::exception& e) {
@@ -77,7 +77,7 @@ int main() {
                   << "***********Welcome to Bureaucratic Machine*************"
                   << END << std::endl;
         try {
-            Bureucrat person3("Bruce Lee", 2);
+            Bureaucrat person3("Bruce Lee", 2);
             std::cout << COLOR_ITALIC << COLOR_CYAN << COLOR_BOLD << person3
                       << END;
             person3.incrementGrade();
@@ -99,7 +99,7 @@ int main() {
                   << "***********Welcome to Bureaucratic Machine*************"
                   << END << std::endl;
         try {
-            Bureucrat person4("John Wick", 0);
+            Bureaucrat person4("John Wick", 0);
             std::cout << COLOR_ITALIC << COLOR_CYAN << COLOR_BOLD << person4
                       << END;
         } catch (const std::exception& e) {
@@ -110,7 +110,7 @@ int main() {
 
     // {
     // 	std::cout << "create bureaucrats" << std::endl;
-    // 	Bureucrat person1("Batman", 50);
+    // 	Bureaucrat person1("Batman", 50);
     // 	std::cout << person1 << std::endl;
     // 	Bureucrat *person2 = new Bureucrat("Joker", 20);
     // 	std::cout << person2 << std::endl;

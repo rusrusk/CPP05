@@ -3,10 +3,11 @@
 
 #include <iostream>
 #include <stdexcept>
-#include "Bureucrat.hpp"
+
+#include "Bureaucrat.hpp"
 #include "colors.hpp"
 
-class Bureucrat;
+class Bureaucrat;
 
 class Form {
 
@@ -45,9 +46,7 @@ class Form {
 	bool GetIsSigned(void) const;
 
 	//helper functions
-	void beSigned(const Bureucrat &bureau);
-
-
+        void beSigned(const Bureaucrat &bureau);
 };
 
 std::ostream &operator<<(std::ostream &o, Form &form);

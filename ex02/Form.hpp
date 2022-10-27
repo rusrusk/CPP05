@@ -5,10 +5,10 @@
 #include <iostream>
 #include <stdexcept>
 
-#include "Bureucrat.hpp"
+#include "Bureaucrat.hpp"
 #include "colors.hpp"
 
-class Bureucrat;
+class Bureaucrat;
 
 class Form {
    private:
@@ -19,10 +19,12 @@ class Form {
     static const int _MAX_GRADE = 1;
     static const int _MIN_GRADE = 150;
 
+    protected:
+
    public:
-    Form();
     Form(std::string param_name, int param_grade_to_sign,
          int param_grade_to_execute);
+    Form();
     Form(const Form &rhs);
     Form &operator=(const Form &rhs);
     virtual ~Form();
@@ -48,9 +50,12 @@ class Form {
     int GetGradeToExecute(void) const;
     bool GetIsSigned(void) const;
 
+    //setters
+	void setIsSigned(bool val);
+
     // helper functions
-    void beSigned(const Bureucrat &bureau);
-    virtual void execute(Bureucrat const &executor) const = 0;
+    void beSigned(const Bureaucrat &bureau);
+    virtual void execute(Bureaucrat const &executor) const = 0;
 };
 
 std::ostream &operator<<(std::ostream &o, Form &form);

@@ -31,7 +31,7 @@ Intern::~Intern() {
 //***** Exceptions class method function ******//
 
 const char *Intern::NonExistingFormException::what() const throw() {
-    return ("GIVEN FORM DOESN'T EXIST");
+    return ("EXCEPTION : GIVEN FORM DOESN'T EXIST");
 }
 
 //***** Helper functions ******//

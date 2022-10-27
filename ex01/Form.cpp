@@ -35,8 +35,6 @@ Form::Form(const Form &rhs)
       _grade_to_sign(rhs._grade_to_sign),
       _grade_to_execute(rhs._grade_to_execute),
       _isSigned(rhs._isSigned) {
-    *this = rhs;
-
     std::cout << "[Form] Copy constructor was called" << std::endl;
 }
 
@@ -44,8 +42,7 @@ Form::Form(const Form &rhs)
 
 Form &Form::operator=(const Form &rhs) {
     if (this != &rhs) {
-
-		this->_isSigned = rhs._isSigned;
+        this->_isSigned = rhs._isSigned;
     }
     return *this;
 }
@@ -58,9 +55,7 @@ int Form::GetGradeToSign(void) const { return this->_grade_to_sign; }
 
 int Form::GetGradeToExecute(void) const { return this->_grade_to_execute; }
 
-bool Form::GetIsSigned(void) const {
-	return this->_isSigned;
-}
+bool Form::GetIsSigned(void) const { return this->_isSigned; }
 
 //***** Destructor ******//
 
@@ -69,39 +64,33 @@ Form::~Form() { std::cout << "[Form] destructor was called" << std::endl; }
 //****** Exception class methods *****//
 
 const char *Form::GradeTooHighException::what() const throw() {
-	return ("THE FORM GRADE IS TOO HIGH!!!");
+    return ("THE FORM GRADE IS TOO HIGH!!!");
 }
 
 const char *Form::GradeTooLowException::what() const throw() {
-	return ("THE FORM GRADE IS TOO LOW!!!");
+    return ("THE FORM GRADE IS TOO LOW!!!");
 }
-
 
 //***** Member function to sign ******//
 
-void Form::beSigned(const Bureucrat &bureau) {
-
-	try
-	{
-		if (bureau.getGrade() <= this->_grade_to_sign) {
-        	this->_isSigned = true;
-        	std::cout << COLOR_UNDERLINE << COLOR_BOLD_GREEN << "~~~~~ [Form] is signed now on!!! ~~~~~" << END << std::endl;
-    	}
-    	else
-        	throw Form::GradeTooLowException();
-	}
-	catch(const Form::GradeTooLowException& e)
-	{
-		std::cerr << COLOR_BOLD_RED << COLOR_STRIKETHROUGH << e.what() << '\n';
-	}
-
+void Form::beSigned(const Bureaucrat &bureau) {
+    if (bureau.getGrade() > this->_grade_to_sign)
+        throw Form::GradeTooLowException();
+    this->_isSigned = true;
+    std::cout << COLOR_UNDERLINE << COLOR_BOLD_GREEN
+              << "~~~~~ [Form] is signed now on!!! ~~~~~" << END << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &o, Form &form) {
-
-	o << COLOR_BOLD_CYAN << "FORM NAME : "  << END << COLOR_ON_YELLOW << COLOR_BOLD_BLACK << form.getName() << END << std::endl;
-    o << COLOR_BOLD_CYAN << "FORM STATUS : " << END << COLOR_ON_YELLOW << COLOR_BOLD_BLACK << (form.GetIsSigned() ? "<<SIGNED>>" : "<<UNSIGNED>>") << END << std::endl;
-    o << COLOR_BOLD_CYAN << "GRADE TO SIGN : " << END << COLOR_ON_YELLOW << COLOR_BOLD_BLACK << form.GetGradeToSign() << END << std::endl;
-    o << COLOR_BOLD_CYAN <<"GRADE TO EXECUTE : " << END << COLOR_ON_YELLOW << COLOR_BOLD_BLACK << form.GetGradeToExecute() << END << std::endl;
+    o << COLOR_BOLD_CYAN << "FORM NAME : " << END << COLOR_ON_YELLOW
+      << COLOR_BOLD_BLACK << form.getName() << END << std::endl;
+    o << COLOR_BOLD_CYAN << "FORM STATUS : " << END << COLOR_ON_YELLOW
+      << COLOR_BOLD_BLACK
+      << (form.GetIsSigned() ? "<<SIGNED>>" : "<<UNSIGNED>>") << END
+      << std::endl;
+    o << COLOR_BOLD_CYAN << "GRADE TO SIGN : " << END << COLOR_ON_YELLOW
+      << COLOR_BOLD_BLACK << form.GetGradeToSign() << END << std::endl;
+    o << COLOR_BOLD_CYAN << "GRADE TO EXECUTE : " << END << COLOR_ON_YELLOW
+      << COLOR_BOLD_BLACK << form.GetGradeToExecute() << END << std::endl;
     return o;
 }

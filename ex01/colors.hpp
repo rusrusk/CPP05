@@ -2,6 +2,10 @@
 # define COLORS_HPP
 
 
+#define delimiter                                                  \
+    std::cout << COLOR_BOLD << COLOR_BRIGHT_DARK_GREY << std::endl \
+              << std::string(60, '=') << END << std::endl;
+
 #define END "\033[0m"
 #define COLOR_BOLD "\033[1m"
 #define COLOR_FAINT "\033[2m"

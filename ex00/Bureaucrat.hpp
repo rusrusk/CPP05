@@ -1,12 +1,12 @@
-#ifndef BUREUCRAT_HPP
-#define BUREUCRAT_HPP
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 
 #include <iostream>
 #include <stdexcept>
 
 #include "colors.hpp"
 
-class Bureucrat {
+class Bureaucrat {
    private:	
     const std::string _name;
     int _grade;
@@ -15,11 +15,11 @@ class Bureucrat {
 
    protected:
    public:
-    Bureucrat();
-    Bureucrat(std::string param_name, int param_grade);
-    Bureucrat(const Bureucrat &rhs);
-    Bureucrat &operator=(const Bureucrat &rhs);
-    ~Bureucrat();
+    Bureaucrat();
+    Bureaucrat(std::string param_name, int param_grade);
+    Bureaucrat(const Bureaucrat &rhs);
+    Bureaucrat &operator=(const Bureaucrat &rhs);
+    ~Bureaucrat();
 
     // Nested Exception error classes
     class GradeTooHighException : public std::exception {
@@ -41,6 +41,6 @@ class Bureucrat {
     void decrementGrade();
 };
 
-std::ostream &operator<<(std::ostream &o, Bureucrat &nb);
+std::ostream &operator<<(std::ostream &o, Bureaucrat &nb);
 
 #endif

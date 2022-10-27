@@ -3,7 +3,8 @@
 //***** Default constructor ******//
 
 PresidentialPardonForm::PresidentialPardonForm()
-    : Form("PresidentialPardonForm", _GRADE_TO_SIGN, _GRADE_TO_EXEC), _target("President") {
+    : Form("PresidentialPardonForm", _GRADE_TO_SIGN, _GRADE_TO_EXEC),
+      _target("President") {
     std::cout << "[PresidentialPardonForm] default constructor was called"
               << std::endl;
 }
@@ -19,7 +20,8 @@ PresidentialPardonForm::PresidentialPardonForm(std::string param_target)
 //***** Copy constructor ******//
 
 PresidentialPardonForm::PresidentialPardonForm(
-    const PresidentialPardonForm &rhs) {
+    const PresidentialPardonForm &rhs)
+    : Form() {
     *this = rhs;
     std::cout << "[PresidentialPardonForm] Copy constructor was called"
               << std::endl;
@@ -31,6 +33,7 @@ PresidentialPardonForm PresidentialPardonForm::operator=(
     const PresidentialPardonForm &rhs) {
     if (this != &rhs) {
         this->_target = rhs._target;
+        this->setIsSigned(this->GetIsSigned());
     }
     std::cout << "[PresidentialPardonForm] Assignment operator was called"
               << std::endl;
@@ -51,24 +54,14 @@ PresidentialPardonForm::~PresidentialPardonForm() {
 
 //***** execute function to execute the form's action of derived class ******//
 
-void PresidentialPardonForm::execute(Bureucrat const &executor) const {
-    try {
-        if (this->GetIsSigned() == false) {
-            throw Form::BreakSignException();
-        } else if (executor.getGrade() <= this->GetGradeToExecute()) {
-            std::cout << COLOR_BOLD_GREEN << COLOR_UNDERLINE << "["
-                      << this->getName()
-                      << "] has been pardoned by Zaphod Beeblebrox" << END
-                      << std::endl;
-            return;
-        } else
-            throw Form::GradeTooLowException();
-    } catch (const Form::BreakSignException &e) {
-        std::cout << COLOR_BOLD_RED << COLOR_STRIKETHROUGH
-                  << "EXCEPTION CAUGHT : " << e.what() << std::endl;
-    } catch (const Form::GradeTooLowException &e) {
-        std::cout << COLOR_BOLD_RED << COLOR_STRIKETHROUGH
-                  << "EXCEPTION CAUGHT DURING EXECUTION : " << e.what()
+void PresidentialPardonForm::execute(Bureaucrat const &executor) const {
+    if (this->GetIsSigned() == false)
+        throw Form::BreakSignException();
+    else if (executor.getGrade() > this->GetGradeToExecute())
+        throw Form::GradeTooLowException();
+    else
+        std::cout << COLOR_BOLD_GREEN << COLOR_UNDERLINE << "["
+                  << this->getName()
+                  << "] has been pardoned by Zaphod Beeblebrox" << END
                   << std::endl;
-    }
 }

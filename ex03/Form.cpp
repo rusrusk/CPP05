@@ -35,8 +35,6 @@ Form::Form(const Form &rhs)
       _grade_to_sign(rhs._grade_to_sign),
       _grade_to_execute(rhs._grade_to_execute),
       _isSigned(rhs._isSigned) {
-    *this = rhs;
-
     std::cout << "[Form] Copy constructor was called" << std::endl;
 }
 
@@ -48,6 +46,10 @@ Form &Form::operator=(const Form &rhs) {
     }
     return *this;
 }
+
+//***** Setter functions ******//
+
+void Form::setIsSigned(bool val) { this->_isSigned = val; }
 
 //***** Getter functions ******//
 
@@ -79,17 +81,14 @@ const char *Form::BreakSignException::what() const throw() {
 
 //***** Member function to sign ******//
 
-void Form::beSigned(const Bureucrat &bureau) {
-    try {
-        if (bureau.getGrade() <= this->_grade_to_sign) {
-            this->_isSigned = true;
-            std::cout << COLOR_UNDERLINE << COLOR_BOLD_GREEN
-                      << "~~~~~ [Form] is signed now on!!! ~~~~~" << END
-                      << std::endl;
-        } else
-            throw Form::GradeTooLowException();
-    } catch (const Form::GradeTooLowException &e) {
-        std::cerr << COLOR_BOLD_RED << COLOR_STRIKETHROUGH << e.what() << '\n';
+void Form::beSigned(const Bureaucrat &bureau) {
+    if (bureau.getGrade() > this->_grade_to_sign)
+        throw Form::GradeTooLowException();
+    else {
+        this->setIsSigned(true);
+        std::cout << COLOR_UNDERLINE << COLOR_BOLD_GREEN
+                  << "~~~~~ [Form] is signed now on!!! ~~~~~" << END
+                  << std::endl;
     }
 }
 

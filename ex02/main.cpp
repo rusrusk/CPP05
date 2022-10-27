@@ -1,4 +1,4 @@
-#include "Bureucrat.hpp"
+#include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -14,19 +14,23 @@ int main() {
               << std::endl;
         try
         {
-            Bureucrat  person1("Spiderman", 144);
+            Bureaucrat  person1("Harry Potter", 144);
+            ShrubberyCreationForm contract1("Hogwarts");
             delimiter
             person1.decrementGrade();
+
             delimiter
-            Form *contract1 = new ShrubberyCreationForm("Perfume");
+            std::cout << person1;
+            std::cout << contract1;
+            
             delimiter
-            person1.signForm(*contract1);
-            contract1->execute(person1);
+            contract1.setIsSigned(true);
+            contract1.execute(person1);
             delimiter
         }
         catch(const std::exception& e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << COLOR_BOLD_RED << COLOR_STRIKETHROUGH << e.what() << '\n';
         }
     }
 
@@ -40,7 +44,7 @@ int main() {
               << std::endl;
         try
         {
-            Bureucrat  person2("Iron Man", 149);
+            Bureaucrat  person2("Iron Man", 149);
             ShrubberyCreationForm contract2("Furniture");
 
             delimiter
@@ -51,7 +55,7 @@ int main() {
         }
         catch(const std::exception& e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << COLOR_BOLD_RED << COLOR_STRIKETHROUGH << e.what() << '\n';
         }
         
     }
@@ -64,7 +68,7 @@ int main() {
               << std::endl;
         try
         {
-            Bureucrat  person3("The Thor", 136);
+            Bureaucrat  person3("The Thor", 136);
             ShrubberyCreationForm contract3("Wardrobe");
 
             std::cout << contract3;
@@ -76,7 +80,7 @@ int main() {
         }
         catch(const std::exception& e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << COLOR_BOLD_RED << COLOR_STRIKETHROUGH << e.what() << '\n';
         }
     }
 
@@ -88,7 +92,7 @@ int main() {
               << std::endl;
         try
         {
-            Bureucrat  person4("The Black Adam ", 140);
+            Bureaucrat  person4("The Black Adam ", 140);
             RobotomyRequestForm contract4("Auto");
 
             std::cout << contract4;
@@ -98,7 +102,7 @@ int main() {
         }
         catch(const std::exception& e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << COLOR_BOLD_RED << COLOR_STRIKETHROUGH << e.what() << '\n';
         }
     }
 
@@ -110,7 +114,7 @@ int main() {
               << std::endl;
         try
         {
-            Bureucrat  person5("Flash Man ", 140);
+            Bureaucrat  person5("Flash Man ", 140);
             RobotomyRequestForm contract5("Auto");
 
             std::cout << contract5;
@@ -121,7 +125,7 @@ int main() {
         }
         catch(const std::exception& e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << COLOR_BOLD_RED << COLOR_STRIKETHROUGH << e.what() << '\n';
         }
     }
 
@@ -133,7 +137,7 @@ int main() {
               << std::endl;
         try
         {
-            Bureucrat  person6("The Hulk", 40);
+            Bureaucrat  person6("The Hulk", 40);
             RobotomyRequestForm contract6("Auto");
 
             std::cout << contract6;
@@ -144,7 +148,7 @@ int main() {
         }
         catch(const std::exception& e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << COLOR_BOLD_RED << COLOR_STRIKETHROUGH << e.what() << '\n';
         }
     }
 
@@ -156,7 +160,7 @@ int main() {
               << std::endl;
         try
         {
-            Bureucrat  person7("Captain America", 15);
+            Bureaucrat  person7("Captain America", 15);
             PresidentialPardonForm contract7("Ceiling");
 
             std::cout << contract7;
@@ -167,7 +171,7 @@ int main() {
         }
         catch(const std::exception& e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << COLOR_BOLD_RED << COLOR_STRIKETHROUGH << e.what() << '\n';
         }
     }
 
@@ -179,7 +183,7 @@ int main() {
               << std::endl;
         try
         {
-            Bureucrat  person8("Doctor Strange", 5);
+            Bureaucrat  person8("Doctor Strange", 5);
             PresidentialPardonForm contract8("Axe");
 
             std::cout << contract8;
@@ -190,8 +194,9 @@ int main() {
         }
         catch(const std::exception& e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << COLOR_BOLD_RED << COLOR_STRIKETHROUGH << e.what() << '\n';
         }
     }
+
 
 }

@@ -1,4 +1,4 @@
-NAME			=			bureucrat
+NAME			=			bureaucrat
 
 CC				=			c++
 
@@ -6,7 +6,7 @@ CFLAGS			=			-Wall -Wextra -Werror --std=c++98 -g
 
 RM				=			rm -rf
 
-SRCS			=			main.cpp Bureucrat.cpp
+SRCS			=			main.cpp Bureaucrat.cpp
 
 OBJSDIR			=			objs
 
