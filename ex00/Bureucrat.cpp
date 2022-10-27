@@ -49,21 +49,41 @@ int Bureucrat::getGrade(void) const { return this->_grade; }
 //******  Increment and Decrement functions ******//
 
 void Bureucrat::decrementGrade() {
-    if (this->_grade == _MIN_GRADE) throw GradeTooLowException();
-    this->_grade++;
-    std::cout << COLOR_BOLD_BLACK << std::string(60, '-') << std::endl;
-    std::cout << "[Bureucrat] --decrements-- his grade to : ["
-              << this->getGrade() << "]              |" << std::endl;
-    std::cout << std::string(60, '-') << END << std::endl;
+    try
+    {    
+        if (this->_grade == _MIN_GRADE)
+            throw GradeTooLowException();
+        else
+        {
+            this->_grade++;
+            std::cout << COLOR_BOLD_BLACK << std::string(60, '-') << std::endl;
+            std::cout << "[Bureucrat] --decrements-- his grade to : ["
+                    << this->getGrade() << "]              |" << std::endl;
+            std::cout << std::string(60, '-') << END << std::endl;
+        }
+    }
+    catch (Bureucrat::GradeTooLowException &e) {
+        std::cout << COLOR_STRIKETHROUGH << COLOR_BOLD_RED << "EXCEPTION CAUGHT: " << e.what() << END << std::endl;
+    }
 }
 
 void Bureucrat::incrementGrade() {
-    if (this->_grade == _MAX_GRADE) throw GradeTooHighException();
-    this->_grade--;
-    std::cout << COLOR_BOLD_BLUE << std::string(60, '-') << std::endl;
-    std::cout << "[Bureucrat] ++increments++ his grade to : ["
-              << this->getGrade() << "]              |" << std::endl;
-    std::cout << std::string(60, '-') << END << std::endl;
+     try
+    {    
+        if (this->_grade == _MAX_GRADE)
+            throw GradeTooHighException();
+        else
+        {
+            this->_grade--;
+            std::cout << COLOR_BOLD_BLACK << std::string(60, '-') << std::endl;
+            std::cout << "[Bureucrat] --increments-- his grade to : ["
+                    << this->getGrade() << "]              |" << std::endl;
+            std::cout << std::string(60, '-') << END << std::endl;
+        }
+    }
+    catch (Bureucrat::GradeTooHighException &e) {
+        std::cout << COLOR_STRIKETHROUGH << COLOR_BOLD_RED << "EXCEPTION CAUGHT: " << e.what() << END << std::endl;
+    }
 }
 
 //****** Exception class methods *****//

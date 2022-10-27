@@ -3,7 +3,7 @@
 //***** Default constructor ******//
 
 PresidentialPardonForm::PresidentialPardonForm()
-    : Form("PresidentialPardonForm", 25, 5), _target("President") {
+    : Form("PresidentialPardonForm", _GRADE_TO_SIGN, _GRADE_TO_EXEC), _target("President") {
     std::cout << "[PresidentialPardonForm] default constructor was called"
               << std::endl;
 }
@@ -11,7 +11,7 @@ PresidentialPardonForm::PresidentialPardonForm()
 //***** Parameterized constructor ******//
 
 PresidentialPardonForm::PresidentialPardonForm(std::string param_target)
-    : Form(param_target, 25, 5) {
+    : Form(param_target, _GRADE_TO_SIGN, _GRADE_TO_EXEC) {
     std::cout << "[PresidentialPardonForm] Parameterized constructor was called"
               << std::endl;
 }

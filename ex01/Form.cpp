@@ -92,7 +92,7 @@ void Form::beSigned(const Bureucrat &bureau) {
 	}
 	catch(const Form::GradeTooLowException& e)
 	{
-		std::cerr  << COLOR_BOLD_RED << COLOR_STRIKETHROUGH << e.what() << '\n';
+		std::cerr << COLOR_BOLD_RED << COLOR_STRIKETHROUGH << e.what() << '\n';
 	}
 
 }

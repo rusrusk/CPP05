@@ -3,7 +3,7 @@
 //***** Default constructor ******//
 
 RobotomyRequestForm::RobotomyRequestForm()
-    : Form("RobotomyRequestForm", 72, 45), _target("Robotomy") {
+    : Form("RobotomyRequestForm", _GRADE_TO_SIGN, _GRADE_TO_EXEC), _target("Robotomy") {
     std::cout << "[RobotomyRequestForm] default constructor was called"
               << std::endl;
 }
@@ -11,7 +11,7 @@ RobotomyRequestForm::RobotomyRequestForm()
 //***** Parameterized constructor ******//
 
 RobotomyRequestForm::RobotomyRequestForm(std::string param_target)
-    : Form(param_target, 72, 45) {
+    : Form(param_target, _GRADE_TO_SIGN, _GRADE_TO_EXEC) {
     std::cout << "[RobotomyRequestForm] Parameterized constructor was called"
               << std::endl;
 }

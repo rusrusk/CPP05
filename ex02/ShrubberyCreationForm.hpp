@@ -8,6 +8,8 @@
 class ShrubberyCreationForm : public Form {
    private:
     std::string _target;
+	static const int _GRADE_TO_SIGN = 145;
+	static const int _GRADE_TO_EXEC = 137;
 
    public:
     ShrubberyCreationForm();

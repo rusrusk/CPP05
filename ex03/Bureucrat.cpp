@@ -95,12 +95,15 @@ Bureucrat::~Bureucrat() {
 
 void Bureucrat::signForm(Form &form) {
     try {
+        if (this->getGrade() > form.GetGradeToSign()) {
+            throw Bureucrat::GradeTooLowException();
+        }
         form.beSigned(*this);
         std::cout << COLOR_BOLD_GREEN << COLOR_UNDERLINE << "~~~~~ ["
                   << this->_name << "] signed " << form.getName() << " ~~~~~"
                   << END << std::endl;
 
-    } catch (const std::exception &e) {
+    } catch (const Bureucrat::GradeTooLowException &e) {
         std::cerr << COLOR_BOLD_RED << COLOR_STRIKETHROUGH << "["
                   << this->getName() << "] couldn't sign " << form.getName()
                   << " because " << e.what() << END << '\n';

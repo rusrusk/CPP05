@@ -3,7 +3,7 @@
 //***** Default constructor ******//
 
 ShrubberyCreationForm::ShrubberyCreationForm()
-    : Form("ShrubberyCreationForm", 145, 137), _target("Shrubbery") {
+    : Form("ShrubberyCreationForm", _GRADE_TO_SIGN, _GRADE_TO_EXEC), _target("Shrubbery") {
     std::cout << "[ShrubberyCreationForm] default constructor was called"
               << std::endl;
 }
@@ -11,7 +11,7 @@ ShrubberyCreationForm::ShrubberyCreationForm()
 //***** Parameterized constructor ******//
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string param_target)
-    : Form(param_target, 145, 137), _target(param_target) {
+    : Form(param_target, _GRADE_TO_SIGN, _GRADE_TO_EXEC), _target(param_target) {
     std::cout << "[ShrubberyCreationForm] Parameterized constructor was called"
               << std::endl;
 }
